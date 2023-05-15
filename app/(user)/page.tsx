@@ -1,10 +1,5 @@
 const Home = () => {
-	return (
-		<div>
-			<h1 className='text-4xl'>home</h1>
-			<p>content</p>
-		</div>
-	);
+	return <div></div>;
 };
 
 export default Home;
