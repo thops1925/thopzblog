@@ -26,6 +26,13 @@ const BlogList = ({ posts }: Props) => {
 										})}
 									</p>
 								</div>
+								<div>
+									{post.categories.map((category) => (
+										<div className='bg-sky-200 text-center text-black px-3 rounded-full text-sm font-semibold'>
+											<p>{category.title}</p>
+										</div>
+									))}
+								</div>
 							</div>
 						</div>
 					</div>
