@@ -1,12 +1,12 @@
+import BlogList from '@components/BlogList';
 import { client } from '@sanity/lib/client';
 import { author } from '@utils/queries';
 
 const Home = async () => {
-	const post = await client.fetch(author());
-	console.log(post);
+	const posts = await client.fetch(author());
 	return (
 		<main>
-			<h1>My Blog Post</h1>
+			<BlogList posts={posts} />
 		</main>
 	);
 };
