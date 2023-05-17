@@ -1,5 +1,3 @@
-'use server';
-
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function exit(req: NextApiRequest, res: NextApiResponse) {
