@@ -5,7 +5,7 @@ import Banner from '@components/Banner';
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html>
-			<body className=''>
+			<body className='max-w-7xl mx-auto'>
 				<Header />
 				<Banner />
 				{children}

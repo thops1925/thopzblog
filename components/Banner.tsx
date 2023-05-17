@@ -8,7 +8,7 @@ const Banner = () => {
 				</h2>
 			</div>
 
-			<p className='mt-5 md:mt-2 font-medium text-gray-400 max-w-sm '>I've been interested in technology for as long as I can remember.</p>
+			{/* <p className='mt-5 md:mt-2 font-medium text-gray-400 max-w-sm '>I've been interested in technology for as long as I can remember.</p> */}
 		</div>
 	);
 };
