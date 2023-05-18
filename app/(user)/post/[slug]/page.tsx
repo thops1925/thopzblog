@@ -7,18 +7,12 @@ type Props = {
 	};
 };
 
-// const postQuery = groq`*[_type == 'post' && slug.current == $slug][0]{
-//     ...,
-//     author->,
-//     categories[]->
-// }`;
-
 const Post = async ({ params: { slug } }: Props) => {
-	const view = await client.fetch(postQuery(slug));
-	// console.log(view);
+	const postSlug = await client.fetch(postQuery(slug));
+	console.log(postSlug);
 	return (
 		<div>
-			<p></p>
+			<p>{}</p>
 		</div>
 	);
 };

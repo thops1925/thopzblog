@@ -10,7 +10,7 @@ export const author = () => {
 };
 
 export const postQuery = (slug: string) => {
-	const query = groq`[_type == 'post' && slug.current == slug][0]
+	const query = groq`*[_type == 'post' && slug.current == '${slug}'][0]
     {
         ...,
         author->,
