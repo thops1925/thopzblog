@@ -19,7 +19,7 @@ const Post = async ({ params: { slug } }: Props) => {
 			<section className='space-2 border border-sky-500 text-white'>
 				<div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
 					<div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
-						<Image src={urlForImage(post.mainImage).url()} alt={post.author.name} className='object-cover lg:object-center mx-auto' fill />
+						<Image src={urlForImage(post.mainImage)} alt={post.author.name} className='object-cover lg:object-center mx-auto' fill />
 					</div>
 					<section className='p-5 bg-sky-500 w-full'>
 						<div className='flex flex-col md:flex-row justify-between'>
@@ -34,7 +34,7 @@ const Post = async ({ params: { slug } }: Props) => {
 								</p>
 							</div>
 							<div className='flex items-center space-x-2'>
-								<Image src={urlForImage(post.author.image).url()} alt={post.author.name} className='rounded-full' height={40} width={40} />
+								<Image src={urlForImage(post.author.image)} alt={post.author.name} className='rounded-full' height={40} width={40} />
 								<div className='w-64'>
 									<h3 className='text-lg font-bold'>{post.author.name}</h3>
 									<div></div>
