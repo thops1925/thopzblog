@@ -68,7 +68,7 @@ const Post = async ({ params: { slug } }: Props) => {
 					</section>
 				</div>
 			</section>
-			<PortableText value={post.body} components={RichText} />
+			{/* <PortableText value={post.body} components={RichText} /> */}
 		</article>
 	);
 };
