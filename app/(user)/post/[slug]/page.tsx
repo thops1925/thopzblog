@@ -1,5 +1,10 @@
 import { client } from '@sanity/lib/client';
+import { urlForImage } from '@sanity/lib/image';
 import { postQuery } from '@utils/queries';
+import Image from 'next/image';
+import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, PromiseLikeOfReactNode } from 'react';
+import { PortableText } from '@portabletext/react';
+import RichText from '@components/RichText';
 
 type Props = {
 	params: {
@@ -8,12 +13,63 @@ type Props = {
 };
 
 const Post = async ({ params: { slug } }: Props) => {
-	const postSlug = await client.fetch(postQuery(slug));
-	console.log(postSlug);
+	const post = await client.fetch(postQuery(slug));
 	return (
-		<div>
-			<p>{}</p>
-		</div>
+		<article className='px-10 pb-28'>
+			<section className='space-2 border border-sky-500 text-white'>
+				<div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
+					<div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
+						<Image src={urlForImage(post.mainImage).url()} alt={post.author.name} className='object-cover lg:object-center mx-auto' fill />
+					</div>
+					<section className='p-5 bg-sky-500 w-full'>
+						<div className='flex flex-col md:flex-row justify-between'>
+							<div>
+								<h1 className='text-4xl font-extrabold'>{post.title}</h1>
+								<p>
+									{new Date(post._createdAt).toLocaleDateString('en-US', {
+										day: 'numeric',
+										month: 'long',
+										year: 'numeric',
+									})}
+								</p>
+							</div>
+							<div className='flex items-center space-x-2'>
+								<Image src={urlForImage(post.author.image).url()} alt={post.author.name} className='rounded-full' height={40} width={40} />
+								<div className='w-64'>
+									<h3 className='text-lg font-bold'>{post.author.name}</h3>
+									<div></div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<h2 className='italic pt-10'>{post.description}</h2>
+							<div className='flex items-center justify-end mt-auto space-x-2'>
+								{post.categories.map(
+									(category: {
+										_id: Key | null | undefined;
+										title:
+											| string
+											| number
+											| boolean
+											| ReactElement<any, string | JSXElementConstructor<any>>
+											| ReactFragment
+											| ReactPortal
+											| PromiseLikeOfReactNode
+											| null
+											| undefined;
+									}) => (
+										<p key={category._id} className='bg-sky-700 text-white px-3 py-3 rounded-full text-sm font-semibold'>
+											{category.title}
+										</p>
+									),
+								)}
+							</div>
+						</div>
+					</section>
+				</div>
+			</section>
+			<PortableText value={post.body} components={RichText} />
+		</article>
 	);
 };
 
