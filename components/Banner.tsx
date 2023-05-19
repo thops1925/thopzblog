@@ -1,9 +1,9 @@
 const Banner = () => {
 	return (
-		<div className='flex flex-col lg:flex-row lg:space-x-5 justify-between font-bold px-10 py-5 mb-10'>
-			<div className='space-y-2'>
-				<h1 className='text-7xl font-bold'>Thopz Daily Blogs</h1>
-				<h2 className='mt-5 md:mt-0  font-light'>
+		<div className='flex lg:space-x-5  font-bold px-10 py-5 mb-10 items-center'>
+			<div className='space-y-2 justify-center items-center text-center'>
+				<h1 className='text-7xl font-bold'>Thops Daily Blogs</h1>
+				<h2 className='mt-5 md:mt-8 font-light'>
 					I hope that by reading my blog, you'll learn something new, be inspired, or simply be entertained.
 				</h2>
 			</div>

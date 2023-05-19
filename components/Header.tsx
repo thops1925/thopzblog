@@ -15,7 +15,7 @@ const Header = () => {
 			<div>
 				<Link
 					href='https://christopherlumenportfolio.vercel.app'
-					className='px-5 py-3 text-sm md:text-base bg-sky-100 text-sky-500 flex items-center rounded-full text-center'>
+					className='px-4 py-2 text-sm md:text-base bg-sky-100 text-sky-500 flex items-center rounded-full text-center'>
 					Check out my Portfolio
 				</Link>
 			</div>
