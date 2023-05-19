@@ -34,7 +34,13 @@ const Post = async ({ params: { slug } }: Props) => {
 								</p>
 							</div>
 							<div className='flex items-center space-x-2'>
-								<Image src={urlForImage(post.author.image)} alt={post.author.name} className='rounded-full' height={40} width={40} />
+								<Image
+									src={urlForImage(post.author.image)}
+									alt={post.author.name}
+									className='rounded-full blur-0 object-cover'
+									height={40}
+									width={40}
+								/>
 								<div className='w-64'>
 									<h3 className='text-lg font-bold'>{post.author.name}</h3>
 									<div></div>

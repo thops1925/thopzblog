@@ -33,6 +33,10 @@ interface Reference {
 	_type: 'reference';
 }
 
+interface Image {
+	[key: string]: string;
+}
+
 interface Slug {
 	_type: 'slug';
 	current: string;
