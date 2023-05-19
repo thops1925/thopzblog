@@ -4,7 +4,7 @@ import { postQuery } from '@utils/queries';
 import Image from 'next/image';
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, PromiseLikeOfReactNode } from 'react';
 import { PortableText } from '@portabletext/react';
-// import RichText from '@components/RichText';
+import { RichText } from '@components/RichText';
 
 type Props = {
 	params: {
@@ -74,7 +74,7 @@ const Post = async ({ params: { slug } }: Props) => {
 					</section>
 				</div>
 			</section>
-			{/* <PortableText value={post.body} components={RichText} /> */}
+			<PortableText value={post.body} components={RichText} />
 		</article>
 	);
 };
