@@ -11,13 +11,12 @@ const BlogList = ({ posts }: Props) => {
 	return (
 		<div>
 			<hr className='border-sky-100 mb-10 mx-10' />
-
 			<div className='grid grid-cols-1 md:grid-cols-2 px-10  gap-10'>
 				{posts.map((post) => (
 					<ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
 						<div className='flex flex-col group cursor-pointer'>
 							<div className='relative w-full h-80 drop-shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out mt-5'>
-								<Image src={urlForImage(post.mainImage)} alt={post.author.name} className='object-cover  lg:object-center' fill />
+								<Image src={urlForImage(post.mainImage)} alt={post.author.name} className='object-cover lg:object-center' fill />
 								<div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between'>
 									<div>
 										<p className='font-bold'>{post.title}</p>
@@ -42,7 +41,6 @@ const BlogList = ({ posts }: Props) => {
 								<p className='underline text-lg font-bold'>{post.title}</p>
 								<p className='line-clamp-2 text-gray-500'>{post.description}</p>
 							</div>
-
 							<p className='mt-5 font-bold flex items-center group-hover:underline'>
 								Read Post
 								<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'>

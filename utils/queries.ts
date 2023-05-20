@@ -18,3 +18,10 @@ export const postQuery = (slug: string) => {
     }`;
 	return query;
 };
+
+export const staticQuery = () => {
+	const query = groq`*[_type=='post']{
+        slug
+    }`;
+	return query;
+};
