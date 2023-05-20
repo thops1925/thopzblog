@@ -1,6 +1,6 @@
 import { client } from '@sanity/lib/client';
 import { urlForImage } from '@sanity/lib/image';
-import { postQuery } from '@utils/queries';
+import { postQuery, staticQuery } from '@utils/queries';
 import Image from 'next/image';
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, PromiseLikeOfReactNode } from 'react';
 import { PortableText } from '@portabletext/react';
@@ -11,6 +11,16 @@ type Props = {
 		slug: string;
 	};
 };
+
+export const revalidate = 10; // revalidate this page every 60 seconds
+
+export async function generateStaticParams() {
+	const posts: Post[] = await client.fetch(staticQuery());
+	const slugRoutes = posts.map((slug) => slug.slug.current);
+	return slugRoutes.map((slug) => ({
+		slug,
+	}));
+}
 
 const Post = async ({ params: { slug } }: Props) => {
 	const post = await client.fetch(postQuery(slug));
