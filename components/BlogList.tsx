@@ -1,7 +1,7 @@
-'use client';
 import Image from 'next/image';
 import ClientSideRoute from './ClientSideRoute';
 import { urlForImage } from '@sanity/lib/image';
+// import { Counter } from './Counter';
 
 type Props = {
 	posts: Post[];
