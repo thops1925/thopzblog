@@ -11,7 +11,7 @@ const BlogList = ({ posts }: Props) => {
 	return (
 		<div>
 			<hr className='border-sky-100 mb-10 mx-10' />
-			<div className='grid grid-cols-1 md:grid-cols-2 px-10  gap-10'>
+			<div className='grid grid-cols-1 md:grid-cols-2   gap-10'>
 				{posts.map((post) => (
 					<ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
 						<div className='flex flex-col group cursor-pointer'>
@@ -37,11 +37,11 @@ const BlogList = ({ posts }: Props) => {
 									</div>
 								</div>
 							</div>
-							<div className='mt-8 flex-1'>
+							<div className='mt-8 flex-1 mx-10'>
 								<p className='underline text-lg font-bold'>{post.title}</p>
 								<p className='line-clamp-2 text-gray-500'>{post.description}</p>
 							</div>
-							<p className='mt-5 font-bold flex items-center group-hover:underline'>
+							<p className='mt-5 font-bold flex items-center group-hover:underline mx-10'>
 								Read Post
 								<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'>
 									<path
