@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 const Header = () => {
 	return (
-		<header className='flex items-center justify-between space-x-2 font-bold px-10 py-2'>
+		<header className='flex items-center justify-between space-x-2 font-bold'>
 			<div className='flex items-center space-x-2'>
 				<Link href='/'>
-					<Image src={logo} alt='logo' className='rounded-full object-contain h-20 w-24 blur-0' />
+					<Image src={logo} alt='logo' className='rounded-full object-contain h-14 w-24 lg:h-20 lg:w-24 blur-0' />
 				</Link>
 				<h1></h1>
 			</div>
