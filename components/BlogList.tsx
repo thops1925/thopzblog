@@ -11,7 +11,7 @@ const BlogList = ({ posts }: Props) => {
 	return (
 		<div>
 			<hr className='border-sky-100 mb-10 mx-10' />
-			<div className='grid grid-cols-1 md:grid-cols-2   gap-10'>
+			<div className='grid grid-cols-1 md:grid-cols-2 mx-2 gap-10'>
 				{posts.map((post) => (
 					<ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
 						<div className='flex flex-col group cursor-pointer'>
