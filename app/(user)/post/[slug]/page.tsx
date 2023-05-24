@@ -12,10 +12,12 @@ type Props = {
 	};
 };
 
-export const revalidate = 10; // revalidate this page every 60 seconds
+// export const revalidate = 10; // revalidate this page every 60 seconds
 
 export async function generateStaticParams() {
-	const posts: Post[] = await client.fetch(staticQuery());
+	const posts: Post[] = await client.fetch(staticQuery(), {
+		next: { revalidate: 10 },
+	});
 	const slugRoutes = posts.map((slug) => slug.slug.current);
 	return slugRoutes.map((slug) => ({
 		slug,
@@ -29,7 +31,14 @@ const Post = async ({ params: { slug } }: Props) => {
 			<section className='space-2 border border-sky-500 text-white'>
 				<div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
 					<div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
-						<Image src={urlForImage(post.mainImage)} alt={post.author.name} className='object-cover lg:object-center mx-auto' fill />
+						<Image
+							src={urlForImage(post.mainImage)}
+							alt={post.author.name}
+							className='object-cover lg:object-center mx-auto'
+							fill
+							// height={300}
+							// width={300}
+						/>
 					</div>
 					<section className='p-5 bg-sky-500 w-full'>
 						<div className='flex flex-col md:flex-row justify-between'>
