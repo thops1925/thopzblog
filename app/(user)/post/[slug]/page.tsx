@@ -13,7 +13,6 @@ type Props = {
 };
 
 // export const revalidate = 10; // revalidate this page every 60 seconds
-
 export async function generateStaticParams() {
 	const posts: Post[] = await client.fetch(staticQuery(), {
 		next: { revalidate: 10 },
