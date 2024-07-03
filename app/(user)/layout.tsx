@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html>
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8026256044128799"
+     crossorigin="anonymous"></script>
 			<body className='max-w-7xl mx-auto'>
 				<Header />
 				<Banner />
